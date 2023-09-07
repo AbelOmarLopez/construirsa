@@ -29,11 +29,11 @@ public class Construirsa {
             Class.forName("org.mariadb.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost/construirsa", "root", "");
 
-            String sql = "select * from herramienta where stock > 1";
+            String sql = "select * from herramienta where stock > 0";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet resultado = ps.executeQuery();
             while (resultado.next()) {
-                System.out.println("id" + resultado.getInt("idHerramienta"));
+                System.out.println("id: " + resultado.getInt("idHerramienta"));
                 System.out.println("nombre:" + resultado.getString("nombre"));
                 System.out.println("stock:" + resultado.getInt("stock"));
                 System.out.println("-------------------------------------");
